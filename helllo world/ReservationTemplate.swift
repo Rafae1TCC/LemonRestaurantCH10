@@ -32,11 +32,11 @@ struct ReservationTemplate: View {
     }
     
     var reservationStatus: String {
-        if userName.isEmpty && (phoneNumber.count < 10 || phoneNumber.count > 10) {
+        if userName.isEmpty && phoneNumber.count < 10 {
             return "Fill in your name and phone number to continue"
         } else if userName.isEmpty {
             return "Fill in your name to continue"
-        } else if phoneNumber.count < 10 || phoneNumber.count > 10 {
+        } else if phoneNumber.count < 10{
             return "Fill in your phone number to continue"
         } else {
             return "Ready to preview"
@@ -118,7 +118,7 @@ struct ReservationTemplate: View {
                     Text("Please enter a phone number")
                         .font(.footnote)
                         .foregroundColor(.red)
-                } else if phoneNumber.count < 10 || phoneNumber.count > 10 {
+                } else if phoneNumber.count < 10{
                     Text("Please enter a valid phone number")
                         .font(.footnote)
                         .foregroundColor(.red)
@@ -145,7 +145,7 @@ struct ReservationTemplate: View {
                         Phone:      \(phoneNumber)
                         Notes:      \(notes)
                         """
-                }.disabled(userName.isEmpty)
+                }.disabled(userName.isEmpty || phoneNumber.count < 10)
             }
             //Preview
             Section(header: Text("Preview")){
