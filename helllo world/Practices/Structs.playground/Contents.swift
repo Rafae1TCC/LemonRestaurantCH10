@@ -120,3 +120,83 @@ books.forEach { book in
 }
 
 
+
+struct Movie {
+    let title: String
+    let director: String
+    let genre: String
+    var year: Int
+    
+    
+    func printDetails() {
+        print("""
+              The Movie's name is \(title).
+              It was directed by \(director)
+              and it was released in \(year)   
+              The movie's genre is \(genre)\n   
+            
+            """
+            )
+    }
+}
+
+let interstellar = Movie (
+    title: "Interstelar",
+    director: "Christopher Nolan",
+    genre: "Sci-Fi, Suspense",
+    year: 2014
+)
+let darkKnight = Movie (
+    title: "The Dark Knight",
+    director: "Christopher Nolan",
+    genre: "Action",
+    year: 2008
+)
+let toyStory = Movie (
+    title: "Toy Story",
+    director: "John Lasseter",
+    genre: "Animation, Fantasy",
+    year: 1995
+)
+let theHungerGamesMovie = Movie (
+    title: "The Hunger Games",
+    director: "Suzanne Collins",
+    genre: "Sci-Fi, Action",
+    year: 2012
+)
+let pulpFiction = Movie (
+    title: "Pulp Fiction",
+    director: "Quentin Tarantino",
+    genre: "Crime, Action",
+    year: 1994
+)
+let mazeRunner = Movie (
+    title: "Maze Runner",
+    director: "Wes Ball",
+    genre: "Sci-Fi, Action-Adventure, Dystopian Thriller",
+    year: 2014
+)
+
+//interstellar.printDetails()
+//darkKnight.printDetails()
+//toyStory.printDetails()
+
+//let movies = [interstellar, darkKnight, toyStory]
+//
+//movies.forEach { movie in
+//   movie.printDetails()
+//}
+
+var movies = [interstellar, darkKnight, toyStory]
+
+movies.append(theHungerGamesMovie)
+movies.append(pulpFiction)
+movies.append(mazeRunner)
+
+movies.forEach { movie in
+    if movie.year > 2000 {
+        movie.printDetails()
+    }
+}
+
+

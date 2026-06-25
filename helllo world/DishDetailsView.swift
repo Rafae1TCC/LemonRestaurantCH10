@@ -19,16 +19,29 @@ struct DishDetailsView: View {
     let dish:Dish
     
     var body: some View {
-        VStack{
+        ScrollView{
             Image(dish.imageName)
                 .resizable()
-                .scaledToFit()
-                .frame(height: 250)
+                .scaledToFill()
+                .frame(maxWidth: .infinity, minHeight: 250, maxHeight: 250)
+                .clipped()
+            VStack(alignment: .leading){
+                Text(dish.name)
+                    .font(.title)
+                    .bold()
+                    .multilineTextAlignment(.leading)
+                Text(dish.category)
+                    .foregroundColor(.gray)
+                    .textCase(.uppercase)
+                    
+                Text("$\(String(format: "%.2f", dish.price))")
+                    .foregroundColor(.green)
+                
+                Text(dish.description)
+                    .foregroundColor(.gray)
+            }
+            .padding()
         }
-            
-        Text(dish.name)
-        Text(dish.category)
-        Text("$\(String(format: "%.2f", dish.price))")
     }
 }
 
